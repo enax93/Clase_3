@@ -1,0 +1,1738 @@
+# Estructuras condicionales 
+
+# import random libreria con random
+# numero_random = random.randint(1,9)
+# print(numero_random)
+
+# EJERCICIO NO.1 
+
+# Crear una variable llamada num y asignarle un valor entre 1 y 20
+# El el caso de que el valor de la variable num sea menor que 10 debe aparecer en pantalla el mensaje "El valor seleccionado es menor que 10"             
+# En el caso de qeu el valor de la viarbale num sea mayor que 10 debe aprecer en pantalla el mensaje "El valor seleccionado es mayor que 10"
+# En el resto de casos debe aparecer en pantalla el mensaje "El valor seleccionado es 10"
+
+'''
+while True:
+    try:  
+        num = int(input("Introduce un numero entre 1 y 20: "))
+
+        if num < 10:
+            print("El valor seleccionado es menor que 10")  
+
+        elif num > 10:
+            print("El valor seleccionado es mayor que 10") 
+
+        else:
+            print("El valor seleccionado es 10")
+
+        break
+
+    except: 
+        print("Introduciste algo incorrecto, revisa nuevamente")
+    
+'''
+
+# EJERCICIO NO. 2
+
+# opcion 1
+
+'''
+Ejercicio propuesto bucle while
+- Mostrar por pantalla el mensaje "Por favor, introduce un número entre 1 y 9"
+- Utilizando la funcion input, caputurar el valor introducido y asignarlo a una variable num
+- Comprobar que el valor introducido es un numero entre 1 y 9. En caso de que no lo sea, mostrar en pantalla el mensaje "El valor introducido no es correcto. Por favor introduce un número entre 1 y 9"
+- El programa debe continuar haciendo eso hasta que se haya introducido un valor correcto
+- Programar un bucle que haga tantas iteraciones como indique la variable num y que en cada una de ellas muestre un mensaje por pantalla "La iteracion numero i ha finalizado", sustituyendo en cada caso el valor i por el numero de iteracion correspondiente
+
+
+while True:
+    try:
+        num = int(input("Por favor, introduce un número entre 1 y 9: "))
+    
+        if 1 <= num <= 9:
+            cont = 1
+
+            while cont <= num:
+                 print("La iteración número", cont, "ha finalizado")
+                 cont += 1
+            break
+        else:
+            print("El valor introducido no es correcto. Por favor introduce un número entre 1 y 9 \n")
+    except ValueError:
+            print("El valor introducido no es correcto. Por favor introduce un número entre 1 y 9 \n")
+        
+'''
+
+# opcion 2
+
+'''
+Ejercicio propuesto bucle while
+- Utilizando import random para generar un número entre 1 y 10 y asignar esa respuesta en la variable "numero_secreto"
+- Crear una variable que tenga como valor la respuesta del usuario llamandola "suposicion_usuario"
+- Haz un bucle donde si el input recibido no es igual al número secreto le deja saber a traves de condicionales (IF, Elif, Else) si el usuario esta por debajo o por encima del numero correcto
+
+
+import random 
+
+numero_secreto = random.randint(1,10)
+
+while True:
+    
+    try:
+        suposicion_usuario = int(input("Intenta adivinar el numero secreto: "))
+
+        if numero_secreto < suposicion_usuario:
+            print("El número que introdujiste es mayor que el número secreto, intenta uno  menor", "\n")
+        
+        elif numero_secreto > suposicion_usuario:
+            print("El número que introdujiste es menor que el número secreto, intenta uno mayor", "\n")
+        
+        elif numero_secreto == suposicion_usuario:
+            print("Felicidades haz descubierto el número secreto")
+            break
+        
+    except ValueError:
+        print("Error, sólo puedes introducir números")
+
+'''
+
+# EJERCICIO NO. 3
+
+'''
+Ejercicio propuesto bucle For
+
+- Crear una lista llamada frutas y asignarle el nombre de cuatro frutas
+- Mostrar por pantalla el mensaje "Las frutas seleccionadas son nombre_fruta_1, nombre_fruta_2, nombre_fruta_3 y nombre_fruta_4. Sustituyendo nombre_fruta_i por los valores de la lista"
+
+
+frutas = ["Fresa", "Naranja", "Manzana", "Kiwi"]
+mensaje = "Las frutas seleccionadas son "
+cont = 1
+
+for fruta in frutas: 
+    if cont <= 2:
+        mensaje = mensaje + fruta + ", "
+        cont += 1
+    elif cont == 3:
+        mensaje = mensaje + fruta + " y "
+        cont += 1
+    else:
+        mensaje = mensaje + fruta
+        print(mensaje)
+
+'''
+
+'''
+# Ejemplo bola mágica
+
+import random
+
+nombre = "Tito"
+pregunta = "¿Me ganaré la loto?"
+respuesta = ""
+numero_random = random.randint(1,9)
+
+print(numero_random)
+
+if numero_random == 1:
+    respuesta = "Si, definitivamente"
+elif numero_random == 2:
+    respuesta = "Entiendo que si"
+elif numero_random == 3:
+    respuesta = "Sin dudas"
+elif numero_random == 4:
+    respuesta = "No se, intenta nuevamente"
+elif numero_random == 5:
+    respuesta = "Pregunta nuevamenta más tarde"
+elif numero_random == 6:
+    respuesta = "Mejor ni te digo"
+elif numero_random == 7:
+    respuesta = "Entiendo que no"
+elif numero_random == 8:
+    respuesta = "Bueh, yo me quedo quieto"
+elif numero_random == 9:
+    respuesta = "Ta dificíl"
+else: 
+    respuesta = "Error"
+
+print(nombre + " pregunta: " + pregunta)
+print("Respuesta de la bola mágica: " + respuesta)
+
+'''
+
+'''
+
+name = input("Escribe tu nombre: ")
+print("Saludos ", name, "comienza tu aventura!")
+
+answer = input("Estas viajando en un carruaje y de repente se detiene. ¿Quisieras quedarte sentado o investigar? (quedarte/investigar) ").lower()
+
+if answer == "quedarte":
+    print("Te quedaste sentado y aparecieron par de trinitarios que te pidieron limpieza, perdiste")
+
+elif answer == "investigar":
+    answer = input("Ves un puente, se ve medio flojo. ¿Quieres cruzar o devolverte? (cruzar/devolverte) ").lower()
+
+    if answer == "devolverte":
+        print("Esto se supone que es una aventura, perdiste por miedoso.")
+    elif answer == "cruzar":
+        answer = input("Te acabas de encontrar con un extraño. ¿Quieres hablarle? (si/no) ").lower()
+        if answer == "si":
+            print("Hablaste con el extraño y decidió darte los números de la loto pues, te veías miserable. GANASTE!")
+        elif answer == "no":
+            print("Lo ignoras, el señor se ofende y te abandona. Perdiste")
+        else:
+            print("No es una opción válida. Peridste.")
+    else:
+            print("No es una opción válida. Peridste.")
+else:
+            print("No es una opción válida. Peridste.")
+
+print("Gracias por intentar", name)
+
+'''   
+
+import sys, random
+
+print("JUEGO \n")
+
+def reglas():
+
+    print("Introducir el nombre de tu jugador, a este le llamaremos avatar")
+    print("Ten cuidado, cada error que cometas al escoger las opciones implicará pérdida de vidas")
+    print("Escoger un elemento")
+    print("Los elementos tienen ventajas que te explicaremos a continuacion")
+    print("Fuego > hierva > agua")
+    print("Los elementos tienen desventajas que te explicaremos a continuacion")
+    print("Agua < hierva < fuego")
+    print("Aparte de los elementos tenemos tipo de armas, fijate bien")
+    print("Bastón > espada > lanza")
+    print("Al igual se contemplan los no efectivos")
+    print("Lanza < espada < bastón")
+    print("El elemento del enemigo y el tipo de arma que utilizará se escogen de forma aleatoria.")
+    print("Para continuar la aventura deberás enfrentarte a distintos oponentes donde resultará ganador el que domine el elemento o el arma.")
+    print("Debes escoger si deseas tener una batalla elemental o con armas para enfrentar al enemigo.")
+    print("Las batallas elementales y con armas siguen las mismas reglas.")
+    print("Luego de escoger el tipo de batalla se calcula el daño realizado.")
+    print("Presta atención al daño efectuado y trata de adivinar que elemento o arma utiliza el enemigo, si lo consigues realizarás un daño adicional.")
+    print("Escoge sabiamente entre elemento o armas para tomar ventaja del daño que realizas en cada enfrentamiento.")
+    print("Continuarás escogiendo entre elemento y armas hasta que haya un ganador.")
+
+    while True:
+        resp = input("¿Deseas volver al iniciar el juego o salir? (iniciar/salir): ").lower()
+
+        if resp == "iniciar":
+            iniciar_juego()
+        elif resp == "salir":
+            salir()
+        else:
+            print("Opción inexistente")
+
+def iniciar_juego():
+
+    elementos = ["fuego", "hierva", "agua"]
+    tipos_armas = ["baston", "espada", "lanza"]
+    vidas = 3.0
+    cpu_elemento = elementos[random.randint(0,2)]
+    cpu_tipo_arma = tipos_armas[random.randint(0,2)]
+    cpu_vidas = 3.0
+   
+    #print("Elemento cpu:", cpu_elemento)
+    #print("Tipo de ataque cpu:", cpu_tipo_arma)
+
+    avatar = input("Por favor escribe el nombre de tu avatar: ")
+
+    while True:
+        avatar_elemento = input("Por favor escoge un elemento de la lista " + str(elementos) + " ").lower()
+    
+        if avatar_elemento == "fuego":
+            print("Has escogido fuego. Eres efectivo contra hierva pero, cuidado con el agua.")
+            break
+
+        elif avatar_elemento == "hierva":
+            print("Has escogido hierva. Eres efectivo contra agua pero, cuidado con el fuego.")
+            break
+
+        elif avatar_elemento == "agua":
+            print("Has escogido agua. Eres efectivo contra fuego pero, cuidado con la hierva.")
+            break
+
+        else:
+            vidas -= 1
+            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+            if round(vidas, 1) <= 0.0:
+                print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                sys.exit()
+
+    while True:
+        avatar_tipo_arma = input("Por Favor escoge un arma de la lista " + str(tipos_armas) + " ").lower()
+
+        if avatar_tipo_arma == "baston":
+            print("Has escogido baston. Eres un mago y tus ataques son efectivos contra espadachines pero, cuidado con los lanceros.")
+            break
+
+        elif avatar_tipo_arma == "espada":
+            print("Has escogido espada. Eres un espadachin y tus ataques son efectivos contra lanceros pero, cuidado con los magos.")
+            break
+
+        elif avatar_tipo_arma == "lanza":
+            print("Has escogido lanza. Eres un lancero y tus ataques son efectivos contra magos pero, cuidado con los espadachines.")
+            break
+
+        else:
+            vidas -= 1
+            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+            if round(vidas, 1) <= 0.0:
+                print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                sys.exit()
+
+    if avatar_tipo_arma == "baston":
+        print(avatar + " se ha convertido en un mago de " + avatar_elemento)
+    elif avatar_tipo_arma == "cortante":
+        print(avatar + " se ha convertido en un espadachín de" + avatar_elemento)
+    else:
+        print(avatar + " se ha convertido en un lancero de " + avatar_elemento)
+
+    while round(vidas, 1) > 0: 
+        decision = input("Te encuentras un enemigo, debes escoger como atacar, puedes tener una batalla elemental o una batalla con armas. Escoge (elemento/arma): ").lower()
+
+        if decision == "elemento":
+           
+            if cpu_elemento == "fuego" and avatar_elemento == "fuego":
+                
+                cpu_vidas -= 0.3
+                vidas -= 0.3
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Ambos recibieron daño de 0.3")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "fuego":
+                            cpu_vidas -= 0.3
+                            print("Has adivinado correctamente, tu enemigo recibe 0.3 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "hierva":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "agua":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "fuego" and avatar_elemento == "hierva":
+                
+                cpu_vidas -= 0.1
+                vidas -= 0.6
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.6 de daño mientras tu enemigo recibió 0.1 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "fuego":
+                            cpu_vidas -= 0.1
+                            print("Has adivinado correctamente, tu enemigo recibe 0.1 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "hierva":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "agua":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.4
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.4")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "fuego" and avatar_elemento == "agua":
+                
+                cpu_vidas -= 0.6
+                vidas -= 0.1
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.1 de daño mientras tu enemigo recibió 0.6 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "fuego":
+                            cpu_vidas -= 0.6
+                            print("Has adivinado correctamente, tu enemigo recibe 0.6 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "hierva":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "agua":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "hierva" and avatar_elemento == "fuego":
+                
+                cpu_vidas -= 0.6
+                vidas -= 0.1
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.1 de daño mientras tu enemigo recibió 0.6 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "hierva":
+                            cpu_vidas -= 0.6
+                            print("Has adivinado correctamente, tu enemigo recibe 0.6 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "fuego":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "agua":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "hierva" and avatar_elemento == "hierva":
+                
+                cpu_vidas -= 0.3
+                vidas -= 0.3
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Ambos recibieron daño de 0.3")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "hierva":
+                            cpu_vidas -= 0.3
+                            print("Has adivinado correctamente, tu enemigo recibe 0.3 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "fuego":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "agua":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "hierva" and avatar_elemento == "agua":
+                
+                cpu_vidas -= 0.1
+                vidas -= 0.6
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.6 de daño mientras tu enemigo recibió 0.1 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "hierva":
+                            cpu_vidas -= 0.1
+                            print("Has adivinado correctamente, tu enemigo recibe 0.1 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "fuego":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "agua":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.4
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.4")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "agua" and avatar_elemento == "fuego":
+                
+                cpu_vidas -= 0.1
+                vidas -= 0.6
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.6 de daño mientras tu enemigo recibió 0.1 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "agua":
+                            cpu_vidas -= 0.1
+                            print("Has adivinado correctamente, tu enemigo recibe 0.1 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "hierva":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "fuego":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.4
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.4")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "agua" and avatar_elemento == "hierva":
+                
+                cpu_vidas -= 0.6
+                vidas -= 0.1
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.1 de daño mientras tu enemigo recibió 0.6 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "agua":
+                            cpu_vidas -= 0.6
+                            print("Has adivinado correctamente, tu enemigo recibe 0.6 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "hierva":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "fuego":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_elemento == "agua" and avatar_elemento == "agua":
+                
+                cpu_vidas -= 0.3
+                vidas -= 0.3
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Ambos recibieron daño de 0.3")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el elemento del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el elemento que crees que ha utilizado tu enemigo. (fuego, hierva, agua): ").lower()
+                        
+                        if resp == "agua":
+                            cpu_vidas -= 0.3
+                            print("Has adivinado correctamente, tu enemigo recibe 0.3 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "hierva":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "fuego":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+        elif decision == "arma":
+            
+            if cpu_tipo_arma == "baston" and avatar_tipo_arma == "baston":
+                
+                cpu_vidas -= 0.3
+                vidas -= 0.3
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Ambos recibieron daño de 0.3")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "baston":
+                            cpu_vidas -= 0.3
+                            print("Has adivinado correctamente, tu enemigo recibe 0.3 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "espada":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "lanza":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "baston" and avatar_tipo_arma == "espada":
+                
+                cpu_vidas -= 0.1
+                vidas -= 0.6
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.6 de daño mientras tu enemigo recibió 0.1 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "baston":
+                            cpu_vidas -= 0.1
+                            print("Has adivinado correctamente, tu enemigo recibe 0.1 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "espada":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "lanza":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.4
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.4")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "baston" and avatar_tipo_arma == "lanza":
+                
+                cpu_vidas -= 0.6
+                vidas -= 0.1
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.1 de daño mientras tu enemigo recibió 0.6 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "baston":
+                            cpu_vidas -= 0.6
+                            print("Has adivinado correctamente, tu enemigo recibe 0.6 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "espada":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "lanza":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "espada" and avatar_tipo_arma == "baston":
+                
+                cpu_vidas -= 0.6
+                vidas -= 0.1
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.1 de daño mientras tu enemigo recibió 0.6 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "espada":
+                            cpu_vidas -= 0.6
+                            print("Has adivinado correctamente, tu enemigo recibe 0.6 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "baston":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "lanza":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "espada" and avatar_tipo_arma == "espada":
+                
+                cpu_vidas -= 0.3
+                vidas -= 0.3
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Ambos recibieron daño de 0.3")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "espada":
+                            cpu_vidas -= 0.3
+                            print("Has adivinado correctamente, tu enemigo recibe 0.3 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "baston":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "lanza":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "espada" and avatar_tipo_arma == "lanza":
+                
+                cpu_vidas -= 0.1
+                vidas -= 0.6
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.6 de daño mientras tu enemigo recibió 0.1 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "espada":
+                            cpu_vidas -= 0.1
+                            print("Has adivinado correctamente, tu enemigo recibe 0.1 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "baston":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "lanza":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.4
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.4")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "lanza" and avatar_tipo_arma == "baston":
+                
+                cpu_vidas -= 0.1
+                vidas -= 0.6
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.6 de daño mientras tu enemigo recibió 0.1 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "lanza":
+                            cpu_vidas -= 0.1
+                            print("Has adivinado correctamente, tu enemigo recibe 0.1 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "espada":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "baston":
+                            vidas -= 0.6
+                            print("Recibes 0.6 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.4
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.4")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "lanza" and avatar_tipo_arma == "espada":
+                
+                cpu_vidas -= 0.6
+                vidas -= 0.1
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Recibiste 0.1 de daño mientras tu enemigo recibió 0.6 de daño")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "lanza":
+                            cpu_vidas -= 0.6
+                            print("Has adivinado correctamente, tu enemigo recibe 0.6 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "espada":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "baston":
+                            vidas -= 0.1
+                            print("Recibes 0.1 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+            elif cpu_tipo_arma == "lanza" and avatar_tipo_arma == "lanza":
+                
+                cpu_vidas -= 0.3
+                vidas -= 0.3
+                
+                if round(vidas, 1) <= 0.0:
+                    print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                    sys.exit()
+
+                elif round(cpu_vidas, 1) <= 0.0:
+                    print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                    sys.exit()
+                
+                else:
+                    print("Ambos recibieron daño de 0.3")
+                    print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+                    print("Vidas restantes: ", round(vidas, 1))
+
+                    adivinar = input("Tienes la oportunidad de adivinar el tipo de arma del enemigo, si lo haces bien el daño que hiciste será duplicado, si aciertas mal recibiras el daño.  Adivinar (si/no): ").lower()
+
+                    if adivinar == "si":
+                        resp = input("Escoge el tipo de arma que crees que ha utilizado tu enemigo. (baston, espada, lanza): ").lower()
+                        
+                        if resp == "lanza":
+                            cpu_vidas -= 0.3
+                            print("Has adivinado correctamente, tu enemigo recibe 0.3 de daño adicional")
+                            
+                            if round(cpu_vidas, 1) <= 0.0:
+                                print("Felicidades, has derrotado a tu enemigo y has ganado!")
+                                sys.exit()
+                            else:
+                                print("Vida restante del enemigo: ", round(cpu_vidas, 1))
+
+                        elif resp == "espada":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+
+                        elif resp == "baston":
+                            vidas -= 0.3
+                            print("Recibes 0.3 de daño por responder incorrectamente.")
+
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+                            else:
+                                print("Vidas restantes: ", round(vidas, 1))
+
+                        else:
+                            vidas -= 1
+                            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                            if round(vidas, 1) <= 0.0:
+                                print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                                sys.exit()
+
+                    elif adivinar == "no":
+                        vidas -= 0.2
+                        print("El enemigo te ha agarrado con la guardia baja por estar pensando, como consecuencia, recibes un ataque suyo de 0.2")
+
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas. Vuelve a intentarlo.")
+                            sys.exit()
+                        else:
+                            print("Vidas restantes: ", round(vidas, 1))
+                    
+                    else:
+                        vidas -= 1
+                        print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+                        if round(vidas, 1) <= 0.0:
+                            print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                            sys.exit()
+
+        else:
+            vidas -= 1
+            print("Has seleccionado una opción que no existe, pierdes una vida. Vidas restantes: ", round(vidas, 1)) 
+            if round(vidas, 1) <= 0.0:
+                print("Te has quedado sin vidas y pierdes el juego. Vuelve a intentarlo.")
+                sys.exit()
+
+def salir():
+    print("Pue' bye")
+    sys.exit()
+
+while True:
+    
+    print("1. Reglas del juego \n")
+    print("2. Iniciar juego \n")
+    print("3. Salir \n")
+
+    opcion = input("Selecciona una opción: ")
+
+    if opcion == "1":
+        reglas()  
+        
+    elif opcion == "2":
+        iniciar_juego()
+
+    elif opcion == "3":
+        salir()
+
+    else: 
+        print("La opción seleccionada no existe. Fíjate bien! \n")
+
+
